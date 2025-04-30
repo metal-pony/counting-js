@@ -1,53 +1,58 @@
-# Bucket
-> A bucket for my js utilities.
+# counting-js
+> Utility functions related to counting and combinatorial bit manipulation.
 
+## Api
+
+### Math
 ```
-./src
-├── engine [WIP]    Basic 2D game engine.
-│   ├── Engine      Main game engine class. Scene management.
-│   ├── GameObj     Base class for all game objects.
-│   ├── Geo
-│   ├── LineSeg
-│   ├── Point
-│   ├── Polygon
-│   └── Scene       Updates and renders game objects.
-├── event           Simple event bussing.
-│   ├── Event
-│   └── EventBussy  Manages event listeners and dispatching.
-├── structs         Random data structures.
-│   ├── Coord       2D Coordinates.
-│   ├── Move        2D Coordinates plus rotation.
-│   ├── Position    2D Coordinates plus rotation and maxRotation.
-│   └── Vector      Represents a 2D vector.
-└── util
-    ├── Freezable   Base class for locking down object properties.
-    ├── Timer       Executes a callback after a given amount of time. Repeatable.
-    ├── Util        Shuffling, generating ranges, number validation, etc.
-    └── ZMod        Maintains an integer bounded to a given range (the mod).
+factorial(n: int): bigint
+nChooseK(n: int, k: int): bigint
 ```
 
-## Scripts
+### Permutation
+```
+permutation(n: int, r: bigint): number[]
+forEachPerm(n: int, callback: (perm: number[]) => boolean)
+randomPermutation(n: int): number[]
 
-| Script | Description |
-| ------ | ----------- |
-| `clean` | Deletes the output directory, `build/`. |
-| `build` | Compiles/transforms and places the output directory, `build/`. |
-| `test` | Yay tests. |
+shuffle(arr: any[]): any[]
+```
+
+### Combination
+```
+combo(n: int, k: int, r: bigint): number[]
+forEachCombo(n: int, k: int, callback: (items: int[]) => boolean)
+allCombos(n: int, k: int): number[][]
+randomCombo(n: int, k: int): number[]
+
+bitCombo(n: int, k: int, r: bigint): bigint
+forEachBitCombo(n: int, k: int, callback: (bitCombo: bigint) => boolean)
+allBitCombos(n: int, k: int): bigint[]
+randomBitCombo(n: int, k: int): number[]
+nextBitCombo(n: int, r: bigint): bigint
+
+bitComboToR(n: int, k: int, bc: bigint): bigint
+```
+
+### Bigint
+```
+bitLength(bn: bigint): number
+```
 
 ## Installing
 
-Unfortunately, even public GitHub packages require authentication to install.
+Reference: [GitHub docs related to packages](https://docs.github.com/en/packages/learn-github-packages/installing-a-package)
 
-Create a personal access token with the `read:packages` scope.
+GitHub packages require authentication to install.
 
-Add the GitHub package registry to your `.npmrc` file like below, replacing `GH_PAT` with your PAT:
-
+1. Create a personal access token with the `read:packages` scope.
+2. Add the GitHub package registry to a `.npmrc` file in your project like below, replacing `GH_PAT` with your PAT:
 ```
 //npm.pkg.github.com/:_authToken=GH_PAT
 @metal-pony:registry=https://npm.pkg.github.com
 ```
-
-Then install the package as normal.
+3. Then install in your project as normal:
 ```
-npm install @metal-pony/bucket-js
+npm install @metal-pony/counting-js
 ```
+Do not commit your `.npmrc` file. Keep your access token secret.
