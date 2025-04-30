@@ -1,7 +1,7 @@
 {
-  "name": "@metal-pony/bucket-js",
+  "name": "@metal-pony/counting-js",
   "version": "1.5.1",
-  "description": "Bucket of js utilities",
+  "description": "Utility functions related to counting and combinatorial bit manipulation",
   "type": "module",
   "license": "MIT",
   "main": "index.js",
@@ -23,9 +23,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/metal-pony/bucket-js.git"
-  },
-  "dependencies": {
-    "arg": "^5.0.2"
+    "url": "git+https://github.com/metal-pony/counting-js.git"
   }
 }
