@@ -1,4 +1,4 @@
-import * as subject from '../../src/perms.js';
+import * as subject from '../src/perms.js';
 
 const _range = (end, start = 0) => Array(end - start).fill(0).map((_v, i) => (start + i));
 
